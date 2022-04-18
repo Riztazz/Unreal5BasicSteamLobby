@@ -27,6 +27,7 @@ void UMyGameInstanceSubsystem::StartMatchmakingProcess()
         m_sessionSearch->bIsLanQuery = false;
         m_sessionSearch->MaxSearchResults = 2000;
         //m_sessionSearchResult->PingBucketSize = 250;
+        // this option is necessary when using lobbies
         m_sessionSearch->QuerySettings.Set( SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals );
 
         auto localPlayer = GetGameInstance()->GetLocalPlayerByIndex(0);
@@ -53,6 +54,7 @@ void UMyGameInstanceSubsystem::UpdateState( TestNetworkState state )
 
 void UMyGameInstanceSubsystem::OnFindSessionsComplete( bool Result )
 {
+    UE_LOG( LogTemp, Warning, TEXT( "OnFindSessionsComplete: Result %u and searchresults num: %u" ), Result, m_sessionSearch ? m_sessionSearch->SearchResults.Num() : 0 );
     // if we didnt fail the find session and we have any search results
     if ( Result && m_sessionSearch && m_sessionSearch->SearchResults.Num() )
     {
@@ -82,7 +84,7 @@ void UMyGameInstanceSubsystem::OnFindSessionsComplete( bool Result )
         SessionSettings.bUsesPresence = true;
         SessionSettings.bUseLobbiesIfAvailable = true;
         SessionSettings.Set( TEXT("NetworkTestSessionNameKey"), NetworkTestSessionName.ToString(), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
-        m_sessionInterface->CreateSession( 0, "CoopPuzzleGameSession", SessionSettings );
+        m_sessionInterface->CreateSession( 0, NetworkTestSessionName, SessionSettings );
 
         UE_LOG( LogTemp, Warning, TEXT( "OnFindSessionComplete: creating session and awaiting joins" ) );
     }
