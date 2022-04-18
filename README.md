@@ -9,3 +9,7 @@ ie:
 +NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/SteamSockets.SteamSocketsNetDriver",DriverClassNameFallback="/Script/SteamSockets.SteamNetSocketsNetDriver")
 
 As per unreal docs ( https://docs.unrealengine.com/4.26/en-US/InteractiveExperiences/Networking/HowTo/SteamSockets/ )
+
+
+-- if you found it useful, consider buying me a coffee :) Thanks!
+https://www.buymeacoffee.com/Riztazz
