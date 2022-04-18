@@ -15,5 +15,10 @@ Notes worth considering;
 it is required for p2p connection
 - When searching for lobbies, SEARCH_PRESENCE key setting is required to find other lobbies
 
+How to run for nonunreal people:
+- This project has been tested using Visual Studio 2022 and Unreal Engine 5.0.0.
+  Right click on NetworkTest.uproject and Generate visual studio project files, once completed open NetworkTest.sln using Visual Studio 2022.
+  In the upper corner, select build tab and build the solution, once that completes you can launch the uproject file
+
 -- if you found it useful, consider buying me a coffee :) Thanks!
 https://www.buymeacoffee.com/Riztazz
