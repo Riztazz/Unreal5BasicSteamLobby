@@ -2,12 +2,14 @@
 #include "MyGameInstanceSubsystem.h"
 #include "OnlineSessionSettings.h"
 
+// Notes: The UpdateState is not necessary so please ignore it, it's just for me to visualize it in world
 void UMyGameInstanceSubsystem::Initialize( FSubsystemCollectionBase& Collection )
 {
     Super::Initialize( Collection );
 
     IOnlineSubsystem* SubSystem = IOnlineSubsystem::Get();
     m_sessionInterface = SubSystem->GetSessionInterface();
+    // Bind network callbacks to our functions, make sure you do not place this in constructor due to how unreal builds objects
     if ( m_sessionInterface.IsValid() )
     {
         m_sessionInterface->OnCreateSessionCompleteDelegates.AddUObject( this, &UMyGameInstanceSubsystem::OnCreateSessionComplete );
