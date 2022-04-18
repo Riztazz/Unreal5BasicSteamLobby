@@ -1,6 +1,6 @@
 # Unreal5BasicSteamLobby
 Minimal working project that utilizes steam subsystems to connect two people over P2P via steam services
-
+Entire logic is contained within this [file](https://github.com/Riztazz/Unreal5BasicSteamLobby/blob/master/Source/NetworkTest/MyGameInstanceSubsystem.cpp)
 - In order to run it with steam sockets, enable steam socket plugin in editor and replace/add NetDriverDefinition settings under [/Script/Engine.GameEngine]
 
 ie:
