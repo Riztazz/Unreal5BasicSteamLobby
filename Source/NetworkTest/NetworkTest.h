@@ -4,3 +4,4 @@
 
 #include "CoreMinimal.h"
 
+static constexpr const char* MessingWithGitCodeDetection = "HelloGithub";
